@@ -2,6 +2,10 @@
 
 The runnable companion to [The Postal alternative for AI agents](https://mailkite.dev/blog/postal-for-ai-agents/).
 
+Also used by [Integrate Postal with MailKite: Four Practical Setups](https://mailkite.dev/blog/integrate-postal-with-mailkite/) to compare the two payload boundaries. This demo does not configure DNS or implement all four deployment patterns.
+
+**Local demonstration, not a production receiver.** Leave `MAILKITE_API_KEY` unset for dry-run mode. The Postal contrast deliberately demonstrates an unsafe spam-only trust decision; do not use it as sender authentication. The MailKite example acknowledges before asynchronous work and uses a default demo secret. Before exposing a real endpoint, configure the real signing secret, persist work durably before acknowledgement, and implement your sender/action policy. Do not trust arbitrary sender-supplied `Authentication-Results` headers.
+
 Postal can receive mail — it's a mature open-source mail server, and an incoming route
 POSTs your app a parsed message. The catch for an agent inbox is operational: you run the
 whole box (VPS, MariaDB, Caddy, DNS, TLS, PTR/rDNS, IP warmup, blocklist monitoring,
